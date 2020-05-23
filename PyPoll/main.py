@@ -1,4 +1,4 @@
-# user define function to write in file and display on terminal at the same time
+# user defined function to write in file and display on terminal at the same time
 def outputResults(fileName, data):
     print(data)
     fileName.write(data+"\n")
@@ -23,15 +23,16 @@ with open(poll_csv, encoding='utf-8') as csvfile:
     for row in poll_reader:
         candidate = row[2]
         totalVote += 1
-        # creating/updating entry indictonary
+        # creating/updating entry in dictonary
         if candidate in results_dict:
             results_dict[candidate] += 1
         else:
             results_dict.update({candidate: 1})      
 
-# clearing screen, opening analysis file and display & write results
+# clearing screen, opening analysis file and displaying & writing results through user defined function
 os.system('cls' if os.name == 'nt' else 'clear')
 outputFile = open(results_file, "w")
+
 outputResults(outputFile, "Election Results")
 outputResults(outputFile, "-------------------------")
 outputResults(outputFile, "Total Votes: " + str(totalVote))
