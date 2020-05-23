@@ -1,14 +1,18 @@
+# user define function to write in file and display on terminal at the same time
+def outputResults(fileName, data):
+    print(data)
+    fileName.write(data+"\n")
+
 # importing modules
 import os
 import csv
 
 # declaring top level variables
 poll_csv = "./Resources/election_data.csv"
-results_txt = "./analysis/results.txt"
+results_file = "./analysis/results.txt"
 results_dict = dict()
 totalVote = 0
 votePercentage = 0
-theWinner = ""
 
 # opening the csv and creating reader object
 with open(poll_csv, encoding='utf-8') as csvfile:
@@ -23,20 +27,24 @@ with open(poll_csv, encoding='utf-8') as csvfile:
         if candidate in results_dict:
             results_dict[candidate] += 1
         else:
-            results_dict.update({candidate: 1})
+            results_dict.update({candidate: 1})      
 
-# clear screen and display result on terminal
+# clearing screen, opening analysis file and display & write results
 os.system('cls' if os.name == 'nt' else 'clear')
-print("Election Results")
-print("----------------")
-print(f"Total Votes: {totalVote}")
-print("----------------")
+outputFile = open(results_file, "w")
+outputResults(outputFile, "Election Results")
+outputResults(outputFile, "-------------------------")
+outputResults(outputFile, "Total Votes: " + str(totalVote))
+outputResults(outputFile, "-------------------------")
 
 for key in results_dict:
     votePercentage = round((results_dict[key] / totalVote) * 100, 3)
-    print(f"{key}: {votePercentage: .3f}% ({results_dict[key]})")
+    outputResults(outputFile, key + ":  " + str(votePercentage) + "% (" + str(results_dict[key]) +")")
 
-theWinner = max(results_dict, key=results_dict.get)
-print("----------------")
-print(f"Winner: {theWinner}")
-print("----------------")
+outputResults(outputFile, "-------------------------")
+outputResults(outputFile, "Winner: " + max(results_dict, key=results_dict.get))
+outputResults(outputFile, "-------------------------")
+
+# closing results file
+outputFile.close()
+
