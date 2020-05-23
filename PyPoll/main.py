@@ -11,8 +11,7 @@ import csv
 poll_csv = "./Resources/election_data.csv"
 results_file = "./analysis/results.txt"
 results_dict = dict()
-totalVote = 0
-votePercentage = 0
+totalVote, votePercentage = 0, 0
 
 # opening the csv and creating reader object
 with open(poll_csv, encoding='utf-8') as csvfile:
@@ -27,7 +26,7 @@ with open(poll_csv, encoding='utf-8') as csvfile:
         if candidate in results_dict:
             results_dict[candidate] += 1
         else:
-            results_dict.update({candidate: 1})      
+            results_dict.update({candidate: 1})   
 
 # clearing screen, opening analysis file and displaying & writing results through user defined function
 os.system('cls' if os.name == 'nt' else 'clear')
