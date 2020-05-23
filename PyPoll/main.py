@@ -45,4 +45,3 @@ outputResults(outputFile, "-------------------------")
 
 # closing results file
 outputFile.close()
-
