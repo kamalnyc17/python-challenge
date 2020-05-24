@@ -14,11 +14,11 @@ resultsDictonary, totalVote, votePercentage = dict(), 0, 0
 
 # opening the csv and creating reader object
 with open(pollCSV, encoding='utf-8') as csvfile:
-    poll_reader = csv.reader(csvfile)
+    pollReader = csv.reader(csvfile)
     print("Processing Please Wait ")
     # skipping header and then looping through csv
-    next(poll_reader)
-    for row in poll_reader:
+    next(pollReader)
+    for row in pollReader:
         candidate = row[2]
         totalVote += 1
         # creating/updating entry in dictonary
