@@ -33,15 +33,15 @@ outputFile = open(resultsFile, "w")
 
 outputResults(outputFile, "Election Results")
 outputResults(outputFile, "-------------------------")
-outputResults(outputFile, "Total Votes: " + str("{:,.0f}".format(totalVote)))
+outputResults(outputFile, f'Total Votes: {"{:,.0f}".format(totalVote)}')
 outputResults(outputFile, "-------------------------")
 
 for key in resultsDictonary:
     votePercentage = round((resultsDictonary[key] / totalVote) * 100, 3)
-    outputResults(outputFile, key + ":  " + str("{:.3f}%".format(votePercentage)) + " (" + str("{:,.0f}".format(resultsDictonary[key])) +")")
+    outputResults(outputFile, f'{key}: {"{:.3f}%".format(votePercentage)} ({"{:,.0f}".format(resultsDictonary[key])})')
 
 outputResults(outputFile, "-------------------------")
-outputResults(outputFile, "Winner: " + max(resultsDictonary, key=resultsDictonary.get))
+outputResults(outputFile, f'Winner: {max(resultsDictonary, key=resultsDictonary.get)}')
 outputResults(outputFile, "-------------------------")
 
 # closing results file

@@ -49,11 +49,11 @@ outputFile = open(resultsFile, "w")
 
 outputResults(outputFile, "Financial Analysis")
 outputResults(outputFile, "-------------------------")
-outputResults(outputFile, "Total Months: " + str(totalMonths))
-outputResults(outputFile, "Total: " + str("${:,.0f}".format(netProfitLoss)))
-outputResults(outputFile, "Average Change: " + str("${:,.2f}".format(monthlyAverageChange)))
-outputResults(outputFile, "Greatest Increase in Profits: " + monthGreatestProfitIncrease + " (" + str("${:,.0f}".format(greatestProfitIncrease)) + ")")
-outputResults(outputFile, "Greatest Decrease in Profits: " + monthGreatestLossDecrease + " (" + str("${:,.0f}".format(greatestLossDecrease)) + ")")
+outputResults(outputFile, f'Total Months: {totalMonths}')
+outputResults(outputFile, f'Total: {"${:,.0f}".format(netProfitLoss)}')
+outputResults(outputFile, f'Average Change: {"${:,.2f}".format(monthlyAverageChange)}')
+outputResults(outputFile, f'Greatest Increase in Profits: {monthGreatestProfitIncrease} ({"${:,.0f}".format(greatestProfitIncrease)})')
+outputResults(outputFile, f'Greatest Decrease in Profits: {monthGreatestLossDecrease} ({"${:,.0f}".format(greatestLossDecrease)})')
 
 # closing results file
 outputFile.close()
