@@ -1,3 +1,4 @@
+#PyPoll - Calculating poling results
 # user defined function to write in file and display on terminal at the same time
 def outputResults(fileName, data):
     print(data)
