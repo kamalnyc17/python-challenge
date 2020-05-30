@@ -1,5 +1,6 @@
 # ReadMe - python-challenge
 This application contains two module:- PyBank & PyPoll
+Tools used: Python 3.7.6
 
 ## PyBank
 In this module, we have created a Python script for analyzing the financial records of our company. The code will process a dataset in csv format with two columns: Date and Profit/Losses.
